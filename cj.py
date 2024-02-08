@@ -109,6 +109,12 @@ def display_entries():
 
     bank_array(경로데이터[2]) #공통항목
 
+    workbook_path_출장신청 = 경로데이터[0] #출장신청목록
+    workbook_path_여비상세 = 경로데이터[1] #여비상세
+    data_array = 인적데이터
+
+    input_data_to_excel(workbook_path_출장신청, workbook_path_여비상세, data_array)
+
 ####################################################################################################################################################################################
 
 def bank_array(공통항목_path):
@@ -295,17 +301,10 @@ def input_data_to_excel(여비신청_path, 여비상세_path, data_array):
             sheet_여비상세입력설명.cell(row = numb+2, column = 여비상세_열_start+23+1, value = 실국_목록[rows]) #24  X2  Y4  "실국명(100자리이하)" = 출장신청파일
             sheet_여비상세입력설명.cell(row = numb+2, column = 여비상세_열_start+24+1, value = 부서_목록[rows]) #25  Y2  Z4  "부서명(100자리이하)" = 출장신청파일            
 
-
     # 변경사항 저장
     workbook_여비상세.save(여비상세_path)
     workbook_여비상세.close()
     print("데이터가 엑셀에 입력되었습니다.")
-
-    workbook_path_출장신청 = 경로데이터[0] #출장신청목록
-    workbook_path_여비상세 = 경로데이터[1] #여비상세
-    data_array = 인적데이터
-
-    input_data_to_excel(workbook_path_출장신청, workbook_path_여비상세, data_array)
 
 ####################################################################################################################################################################################
 
